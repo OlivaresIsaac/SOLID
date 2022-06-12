@@ -5,6 +5,11 @@
  */
 package solid;
 
+import solid.l.Dog;
+import solid.l.Elephant;
+import solid.s.Store;
+import solid.s.StorePrinter;
+
 /**
  *
  * @author isaac
@@ -18,7 +23,7 @@ public class MainPage extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-       
+
     }
 
     /**
@@ -34,10 +39,24 @@ public class MainPage extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        printConsoleButton = new javax.swing.JButton();
+        printRowsButton = new javax.swing.JButton();
+        printOneRowButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        vehicleComboBox = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        drawButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        walkDogButton = new javax.swing.JButton();
+        walkElephantButton = new javax.swing.JButton();
+        jumpDogButton = new javax.swing.JButton();
+        jumpElephantButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -57,28 +76,115 @@ public class MainPage extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Principio de Responsabilidad Única ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel12.setText("Imprimir información de Tienda");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+
+        printConsoleButton.setText("Imprimir en consola");
+        printConsoleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printConsoleButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(printConsoleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+
+        printRowsButton.setText("Imprimir en varias filas");
+        printRowsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printRowsButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(printRowsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
+
+        printOneRowButton.setText("imprimir en una fila");
+        printOneRowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printOneRowButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(printOneRowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
 
         jTabbedPane2.addTab("S", jPanel2);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Principio de Abierto/Cerrado ");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+
+        vehicleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Camión" }));
+        jPanel3.add(vehicleComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel11.setText("Planos de vehículos");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+
+        drawButton.setText("Dibujar");
+        drawButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drawButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(drawButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         jTabbedPane2.addTab("O", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setText("Principio de Sustitución de Liskov  ");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel8.setText("Elefante");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel9.setText("Acciones de los animales");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel10.setText("Perro");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+
+        walkDogButton.setText("Caminar");
+        walkDogButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                walkDogButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(walkDogButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+
+        walkElephantButton.setText("Caminar");
+        walkElephantButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                walkElephantButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(walkElephantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
+
+        jumpDogButton.setText("Saltar un charco de agua");
+        jumpDogButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jumpDogButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jumpDogButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, 20));
+
+        jumpElephantButton.setText("Saltar un charco de agua");
+        jumpElephantButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jumpElephantButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jumpElephantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
 
         jTabbedPane2.addTab("L", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Principio de Segregación de la Interfaz ");
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel7.setText("Inventario de Isaac's electronics");
@@ -100,7 +206,7 @@ public class MainPage extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setText("Principio de Inversión de la Dependencia ");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel6.setText("Gracias por su compra! seleccione el método de pago: ");
@@ -132,7 +238,7 @@ public class MainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void paymentComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentComboBoxActionPerformed
-        
+
     }//GEN-LAST:event_paymentComboBoxActionPerformed
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
@@ -140,8 +246,48 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_payButtonActionPerformed
 
     private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
-      Main.getApp().getProduct(productComboBox.getSelectedItem().toString());
+        Main.getApp().getProduct(productComboBox.getSelectedItem().toString());
     }//GEN-LAST:event_infoButtonActionPerformed
+
+    private void walkDogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walkDogButtonActionPerformed
+       Main.getApp().getAnimalToWalk("Perro");
+    }//GEN-LAST:event_walkDogButtonActionPerformed
+
+    private void walkElephantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walkElephantButtonActionPerformed
+        Main.getApp().getAnimalToWalk("Elefante");
+    }//GEN-LAST:event_walkElephantButtonActionPerformed
+
+    private void jumpDogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpDogButtonActionPerformed
+        Dog dog = new Dog();
+        Main.getApp().jumpLigthAnimal(dog);
+    }//GEN-LAST:event_jumpDogButtonActionPerformed
+
+    private void jumpElephantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumpElephantButtonActionPerformed
+        Elephant elephant = new Elephant();
+        Main.getApp().tryToJumpAnimal(elephant);
+    }//GEN-LAST:event_jumpElephantButtonActionPerformed
+
+    private void drawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawButtonActionPerformed
+        Main.getApp().getVehicleToDraw(vehicleComboBox.getSelectedItem().toString());
+    }//GEN-LAST:event_drawButtonActionPerformed
+
+    private void printConsoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printConsoleButtonActionPerformed
+        Store store = new Store("Panaderia la Latina", "123", "El Marqués");
+        StorePrinter printer = new StorePrinter(store);
+        Main.getApp().printStoreInfo(printer, 0);
+    }//GEN-LAST:event_printConsoleButtonActionPerformed
+
+    private void printRowsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printRowsButtonActionPerformed
+       Store store = new Store("Panaderia la Latina", "123", "El Marqués");
+        StorePrinter printer = new StorePrinter(store);
+        Main.getApp().printStoreInfo(printer, 1);
+    }//GEN-LAST:event_printRowsButtonActionPerformed
+
+    private void printOneRowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printOneRowButtonActionPerformed
+        Store store = new Store("Panaderia la Latina", "123", "El Marqués");
+        StorePrinter printer = new StorePrinter(store);
+        Main.getApp().printStoreInfo(printer, 2);
+    }//GEN-LAST:event_printOneRowButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,23 +298,7 @@ public class MainPage extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -177,20 +307,26 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public javax.swing.JComboBox<String> getPaymentComboBox() {
         return this.paymentComboBox;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton drawButton;
     private javax.swing.JButton infoButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -198,8 +334,16 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JButton jumpDogButton;
+    private javax.swing.JButton jumpElephantButton;
     private javax.swing.JButton payButton;
     private javax.swing.JComboBox<String> paymentComboBox;
+    private javax.swing.JButton printConsoleButton;
+    private javax.swing.JButton printOneRowButton;
+    private javax.swing.JButton printRowsButton;
     private javax.swing.JComboBox<String> productComboBox;
+    private javax.swing.JComboBox<String> vehicleComboBox;
+    private javax.swing.JButton walkDogButton;
+    private javax.swing.JButton walkElephantButton;
     // End of variables declaration//GEN-END:variables
 }
