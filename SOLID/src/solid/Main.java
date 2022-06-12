@@ -11,11 +11,18 @@ package solid;
  */
 public class Main {
 
+    private static final Functions app = new Functions();
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        Main.app.runApp();
     }
     
+    public static Functions getApp() {
+        return app;
+    }
+
 }
